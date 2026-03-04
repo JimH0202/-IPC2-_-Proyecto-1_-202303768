@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using IPC2_Proyecto1_2020XXXX.Estructuras;
 using IPC2_Proyecto1_2020XXXX.Modelos;
 using IPC2_Proyecto1_2020XXXX.Utilidades;
@@ -46,7 +45,7 @@ namespace IPC2_Proyecto1_2020XXXX.Sistema
 
         public void GenerarSalida(string rutaXml)
         {
-            XMLWriter.EscribirSalida(pacientes.ToList(), rutaXml);
+            XMLWriter.EscribirSalida(pacientes, rutaXml);
         }
 
         public void Limpiar()

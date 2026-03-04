@@ -1,13 +1,14 @@
 using System;
-using System.Collections.Generic;
 using System.Xml;
 using IPC2_Proyecto1_2020XXXX.Modelos;
+using IPC2_Proyecto1_2020XXXX.Estructuras;
 
 namespace IPC2_Proyecto1_2020XXXX.Utilidades
 {
     public static class XMLWriter
     {
-        public static void EscribirSalida(List<Paciente> pacientes, string ruta)
+        // acepta cualquier enumerable (incluida nuestra ListaEnlazada)
+        public static void EscribirSalida(IEnumerable<Paciente> pacientes, string ruta)
         {
             XmlDocument doc = new XmlDocument();
             XmlElement root = doc.CreateElement("pacientes");

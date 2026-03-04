@@ -1,15 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.Xml;
 using IPC2_Proyecto1_2020XXXX.Modelos;
+using IPC2_Proyecto1_2020XXXX.Estructuras;
 
 namespace IPC2_Proyecto1_2020XXXX.Utilidades
 {
     public static class XMLManager
     {
-        public static List<Paciente> CargarPacientes(string ruta)
+        // Devuelve una lista enlazada construida por el alumno
+        public static ListaEnlazada<Paciente> CargarPacientes(string ruta)
         {
-            var pacientes = new List<Paciente>();
+            var pacientes = new ListaEnlazada<Paciente>();
 
             XmlDocument doc = new XmlDocument();
             doc.Load(ruta);
@@ -37,7 +38,7 @@ namespace IPC2_Proyecto1_2020XXXX.Utilidades
                     }
                 }
 
-                pacientes.Add(p);
+                pacientes.AddLast(p);
             }
 
             return pacientes;

@@ -107,12 +107,5 @@ namespace IPC2_Proyecto1_2020XXXX.Estructuras
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-        public List<T> ToList()
-        {
-            var list = new List<T>();
-            foreach (var v in this)
-                list.Add(v);
-            return list;
-        }
     }
 }
