@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pacientes>
+  <paciente>
+    <datospersonales>
+      <nombre>Paciente10000</nombre>
+      <edad>55</edad>
+    </datospersonales>
+    <periodos>10000</periodos>
+    <m>10000</m>
+    <rejilla>
+      <!-- Patrón inicial: algunas celdas infectadas en el centro -->
+      <celda f="5000" c="5000"/>
+      <celda f="5000" c="5001"/>
+      <celda f="5001" c="5000"/>
+      <celda f="5001" c="5001"/>
+      <celda f="5002" c="5000"/>
+      <celda f="5002" c="5001"/>
+      <celda f="5002" c="5002"/>
+    </rejilla>
+  </paciente>
+</pacientes>

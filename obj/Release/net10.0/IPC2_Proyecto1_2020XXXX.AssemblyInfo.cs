@@ -11,7 +11,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("IPC2_Proyecto1_2020XXXX")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+531277a3fd557aff9ec91db0ece30e14f92083fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("IPC2_Proyecto1_2020XXXX")]

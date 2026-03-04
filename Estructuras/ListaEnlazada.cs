@@ -6,8 +6,8 @@ namespace IPC2_Proyecto1_2020XXXX.Estructuras
 {
     public class ListaEnlazada<T> : IEnumerable<T>
     {
-        private Nodo<T> head;
-        private Nodo<T> tail;
+        private Nodo<T>? head;
+        private Nodo<T>? tail;
         private int count;
 
         public int Count => count;
@@ -50,8 +50,8 @@ namespace IPC2_Proyecto1_2020XXXX.Estructuras
 
         public bool Remove(T value)
         {
-            Nodo<T> current = head;
-            Nodo<T> prev = null;
+            Nodo<T>? current = head;
+            Nodo<T>? prev = null;
             while (current != null)
             {
                 if (EqualityComparer<T>.Default.Equals(current.Valor, value))
@@ -73,13 +73,13 @@ namespace IPC2_Proyecto1_2020XXXX.Estructuras
             return false;
         }
 
-        public T Find(Func<T, bool> predicate)
+        public T? Find(Func<T, bool> predicate)
         {
             foreach (var v in this)
             {
                 if (predicate(v)) return v;
             }
-            return default(T);
+            return default;
         }
 
         public int IndexOf(T value)
@@ -97,7 +97,7 @@ namespace IPC2_Proyecto1_2020XXXX.Estructuras
 
         public IEnumerator<T> GetEnumerator()
         {
-            Nodo<T> current = head;
+            Nodo<T>? current = head;
             while (current != null)
             {
                 yield return current.Valor;

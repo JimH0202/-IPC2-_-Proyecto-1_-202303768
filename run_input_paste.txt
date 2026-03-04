@@ -1,0 +1,19 @@
+1
+<?xml version="1.0" encoding="utf-8"?>
+<pacientes>
+  <paciente>
+    <datospersonales>
+      <nombre>PacientePegado</nombre>
+      <edad>40</edad>
+    </datospersonales>
+    <periodos>5</periodos>
+    <m>10</m>
+    <rejilla>
+      <celda f="1" c="1"/>
+      <celda f="1" c="2"/>
+      <celda f="2" c="1"/>
+      <celda f="2" c="2"/>
+    </rejilla>
+  </paciente>
+</pacientes>
+7

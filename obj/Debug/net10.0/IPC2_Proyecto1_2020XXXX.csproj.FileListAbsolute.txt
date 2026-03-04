@@ -1,0 +1,15 @@
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\bin\Debug\net10.0\IPC2_Proyecto1_2020XXXX.exe
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\bin\Debug\net10.0\IPC2_Proyecto1_2020XXXX.deps.json
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\bin\Debug\net10.0\IPC2_Proyecto1_2020XXXX.runtimeconfig.json
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\bin\Debug\net10.0\IPC2_Proyecto1_2020XXXX.dll
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\bin\Debug\net10.0\IPC2_Proyecto1_2020XXXX.pdb
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.AssemblyInfoInputs.cache
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.AssemblyInfo.cs
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.csproj.CoreCompileInputs.cache
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.sourcelink.json
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.dll
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\refint\IPC2_Proyecto1_2020XXXX.dll
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.pdb
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\IPC2_Proyecto1_2020XXXX.genruntimeconfig.cache
+C:\Users\jimhu\Desktop\-IPC2-_-Proyecto-1_-202303768\obj\Debug\net10.0\ref\IPC2_Proyecto1_2020XXXX.dll

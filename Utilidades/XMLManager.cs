@@ -13,8 +13,27 @@ namespace IPC2_Proyecto1_2020XXXX.Utilidades
             var pacientes = new ListaEnlazada<Paciente>();
 
             XmlDocument doc = new XmlDocument();
-            doc.Load(ruta);
-            var nPacientes = doc.DocumentElement.SelectNodes("/pacientes/paciente");
+            try
+            {
+                // Si el usuario pegó el contenido XML en lugar de una ruta, cargar desde la cadena
+                if (!string.IsNullOrWhiteSpace(ruta) && ruta.TrimStart().StartsWith("<"))
+                {
+                    doc.LoadXml(ruta);
+                }
+                else
+                {
+                    doc.Load(ruta);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine($"Error al cargar XML: {ex.Message}");
+                Console.WriteLine("Asegúrese de introducir una ruta válida o pegar contenido XML completo cuando se le solicite la ruta.");
+                return pacientes;
+            }
+
+            var nPacientes = doc.DocumentElement?.SelectNodes("/pacientes/paciente");
+            if (nPacientes == null) return pacientes;
             foreach (XmlNode nodo in nPacientes)
             {
                 Paciente p = new Paciente();
@@ -25,18 +44,40 @@ namespace IPC2_Proyecto1_2020XXXX.Utilidades
                 p.Periodos = per;
                 int.TryParse(nodo.SelectSingleNode("m")?.InnerText, out int m);
                 p.M = m;
-                p.Rejilla = new Rejilla(m);
+
+                // Si la rejilla o el número de periodos supera el umbral de generación, activar modo simulado
+                bool simulado = (m > SimulationConfig.MaxGenerate) || (per > SimulationConfig.MaxGenerate);
+                p.Simulado = simulado;
+
+                int gridToCreate = simulado ? System.Math.Min(m, SimulationConfig.MaxGenerate) : m;
+                p.Rejilla = new Rejilla(gridToCreate);
 
                 var celdas = nodo.SelectNodes("rejilla/celda");
-                foreach (XmlNode cel in celdas)
+                int contadorInfectadas = 0;
+                if (celdas != null)
                 {
-                    if (int.TryParse(cel.Attributes["f"]?.Value, out int f) &&
-                        int.TryParse(cel.Attributes["c"]?.Value, out int c))
+                    foreach (XmlNode cel in celdas)
                     {
-                        if (f > 0 && f <= m && c > 0 && c <= m)
-                            p.Rejilla.Matriz[f - 1, c - 1].Infectada = true;
+                        if (int.TryParse(cel.Attributes?["f"]?.Value, out int f) &&
+                            int.TryParse(cel.Attributes?["c"]?.Value, out int c))
+                        {
+                            if (f > 0 && f <= m && c > 0 && c <= m)
+                            {
+                                // Mapear posiciones originales a la rejilla creada (si es simulada, la rejilla creada es más pequeña)
+                                int targetM = p.Rejilla.M;
+                                int idxF = (int)System.Math.Floor((f - 1) * (double)targetM / m);
+                                int idxC = (int)System.Math.Floor((c - 1) * (double)targetM / m);
+                                if (idxF < 0) idxF = 0; if (idxF >= targetM) idxF = targetM - 1;
+                                if (idxC < 0) idxC = 0; if (idxC >= targetM) idxC = targetM - 1;
+
+                                contadorInfectadas++;
+                                p.Rejilla!.Matriz[idxF, idxC].Infectada = true;
+                            }
+                        }
                     }
                 }
+
+                p.InicialInfectadas = contadorInfectadas;
 
                 pacientes.AddLast(p);
             }

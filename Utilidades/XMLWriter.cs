@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Xml;
 using IPC2_Proyecto1_2020XXXX.Modelos;
 using IPC2_Proyecto1_2020XXXX.Estructuras;
@@ -22,7 +23,7 @@ namespace IPC2_Proyecto1_2020XXXX.Utilidades
                 XmlElement datos = doc.CreateElement("datospersonales");
                 xp.AppendChild(datos);
                 XmlElement nombre = doc.CreateElement("nombre");
-                nombre.InnerText = p.DatosPersonales.Nombre;
+                nombre.InnerText = p.DatosPersonales.Nombre ?? "";
                 datos.AppendChild(nombre);
                 XmlElement edad = doc.CreateElement("edad");
                 edad.InnerText = p.DatosPersonales.Edad.ToString();

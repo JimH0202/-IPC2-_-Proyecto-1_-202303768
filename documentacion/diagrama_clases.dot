@@ -1,0 +1,151 @@
+digraph ClassDiagram {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fillcolor="#E8F4F8", fontname="Arial"];
+    edge [fontname="Arial", fontsize=10];
+
+    // ===== CLASES =====
+    
+    Paciente [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#4A90E2"><FONT COLOR="white"><B>Paciente</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ DatosPersonales: DatosPersonales</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Periodos: int</TD></TR>
+            <TR><TD ALIGN="LEFT">+ M: int</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Rejilla: Rejilla</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Simulado: bool</TD></TR>
+            <TR><TD ALIGN="LEFT">+ InicialInfectadas: int</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Resultado: string</TD></TR>
+            <TR><TD ALIGN="LEFT">+ N: int</TD></TR>
+            <TR><TD ALIGN="LEFT">+ N1: int</TD></TR>
+        </TABLE>
+    >];
+
+    DatosPersonales [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#4A90E2"><FONT COLOR="white"><B>DatosPersonales</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ Nombre: string</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Edad: int</TD></TR>
+        </TABLE>
+    >];
+
+    Rejilla [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#50C878"><FONT COLOR="white"><B>Rejilla</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ M: int</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Matriz: Celda[,]</TD></TR>
+            <TR><TD ALIGN="LEFT">+ ProximoPeriodo(): Rejilla</TD></TR>
+            <TR><TD ALIGN="LEFT">+ ToString(): string</TD></TR>
+            <TR><TD ALIGN="LEFT">- ContarVecinos(int, int): int</TD></TR>
+        </TABLE>
+    >];
+
+    Celda [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#FFB347"><FONT COLOR="white"><B>Celda</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ Infectada: bool</TD></TR>
+        </TABLE>
+    >];
+
+    SimulationSession [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#9B59B6"><FONT COLOR="white"><B>SimulationSession</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ Paciente: Paciente</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Actual: Rejilla</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Periodo: int</TD></TR>
+            <TR><TD ALIGN="LEFT">- historial: ListaEnlazada&lt;string&gt;</TD></TR>
+            <TR><TD ALIGN="LEFT">- inicial: string</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Step(): bool</TD></TR>
+            <TR><TD ALIGN="LEFT">+ RunAll(): void</TD></TR>
+            <TR><TD ALIGN="LEFT">- Cuenta(bool): int</TD></TR>
+        </TABLE>
+    >];
+
+    Simulador [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#E74C3C"><FONT COLOR="white"><B>Simulador</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ RunAll(Paciente): void</TD></TR>
+        </TABLE>
+    >];
+
+    XMLManager [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#3498DB"><FONT COLOR="white"><B>XMLManager</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ CargarPacientes(string):</TD></TR>
+            <TR><TD ALIGN="LEFT" ROWSPAN="1">ListaEnlazada&lt;Paciente&gt;</TD></TR>
+        </TABLE>
+    >];
+
+    XMLWriter [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#16A085"><FONT COLOR="white"><B>XMLWriter</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ EscribirSalida(IEnumerable,</TD></TR>
+            <TR><TD ALIGN="LEFT">string): void</TD></TR>
+        </TABLE>
+    >];
+
+    GraphvizGenerator [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#F39C12"><FONT COLOR="white"><B>GraphvizGenerator</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ Generar(Rejilla, string):</TD></TR>
+            <TR><TD ALIGN="LEFT">void</TD></TR>
+        </TABLE>
+    >];
+
+    SimulationConfig [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#95A5A6"><FONT COLOR="white"><B>SimulationConfig</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ MaxGenerate: int = 100</TD></TR>
+        </TABLE>
+    >];
+
+    ListaEnlazada [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#2C3E50"><FONT COLOR="white"><B>ListaEnlazada&lt;T&gt;</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">+ AddLast(T): void</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Contains(T): bool</TD></TR>
+            <TR><TD ALIGN="LEFT">+ IndexOf(T): int</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Count: int</TD></TR>
+        </TABLE>
+    >];
+
+    Sistema [label=<
+        <TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0">
+            <TR><TD COLSPAN="2" BGCOLOR="#C0392B"><FONT COLOR="white"><B>Sistema</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT">- pacientes: ListaEnlazada</TD></TR>
+            <TR><TD ALIGN="LEFT">+ CargarPacientes(string): void</TD></TR>
+            <TR><TD ALIGN="LEFT">+ ObtenerPaciente(string):</TD></TR>
+            <TR><TD ALIGN="LEFT">Paciente</TD></TR>
+            <TR><TD ALIGN="LEFT">+ GenerarSalida(string): void</TD></TR>
+            <TR><TD ALIGN="LEFT">+ Limpiar(): void</TD></TR>
+        </TABLE>
+    >];
+
+    // ===== RELACIONES =====
+    
+    // Agregación (composición)
+    Paciente -> DatosPersonales [label="contiene", arrowhead="diamond"];
+    Paciente -> Rejilla [label="contiene", arrowhead="diamond"];
+    Rejilla -> Celda [label="contiene", arrowhead="diamond"];
+    
+    // Asociación
+    SimulationSession -> Paciente [label="usa"];
+    SimulationSession -> Rejilla [label="usa"];
+    SimulationSession -> ListaEnlazada [label="usa"];
+    
+    Simulador -> Paciente [label="procesa"];
+    Simulador -> Rejilla [label="procesa"];
+    
+    XMLManager -> Paciente [label="crea"];
+    XMLManager -> Rejilla [label="crea"];
+    
+    XMLWriter -> Paciente [label="lee"];
+    
+    GraphvizGenerator -> Rejilla [label="visualiza"];
+    
+    Sistema -> ListaEnlazada [label="contiene"];
+    Sistema -> Paciente [label="maneja"];
+    
+    // Dependencia
+    Simulador -> SimulationConfig [label="usa", style="dashed"];
+    XMLManager -> SimulationConfig [label="usa", style="dashed"];
+}

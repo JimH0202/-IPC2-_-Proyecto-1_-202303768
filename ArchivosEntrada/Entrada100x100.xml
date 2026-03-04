@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pacientes>
+  <paciente>
+    <datospersonales>
+      <nombre>Paciente100</nombre>
+      <edad>45</edad>
+    </datospersonales>
+    <periodos>500</periodos>
+    <m>100</m>
+    <rejilla>
+      <!-- Patrón inicial: un cuadrado infectado en el centro -->
+      <celda f="50" c="50"/>
+      <celda f="50" c="51"/>
+      <celda f="50" c="52"/>
+      <celda f="51" c="50"/>
+      <celda f="51" c="51"/>
+      <celda f="51" c="52"/>
+      <celda f="52" c="50"/>
+      <celda f="52" c="51"/>
+      <celda f="52" c="52"/>
+      <!-- Agregar más celdas para generar patrones más interesantes -->
+      <celda f="48" c="51"/>
+      <celda f="49" c="51"/>
+      <celda f="53" c="51"/>
+      <celda f="54" c="51"/>
+    </rejilla>
+  </paciente>
+</pacientes>

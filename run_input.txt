@@ -1,0 +1,8 @@
+1
+ArchivosEntrada/entrada_prueba.xml
+2
+PacientePrueba
+4
+5
+ArchivosSalida/salida_prueba.xml
+7

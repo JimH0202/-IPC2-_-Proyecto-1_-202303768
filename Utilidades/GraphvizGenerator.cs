@@ -39,12 +39,14 @@ namespace IPC2_Proyecto1_2020XXXX.Utilidades
             // intentar generar PNG
             try
             {
-                System.Diagnostics.Process.Start("dot",
-                    $"-Tpng {rutaArchivo}.dot -o {rutaArchivo}.png");
+                string dotPath = @"C:\Program Files\Graphviz\bin\dot.exe";
+                System.Diagnostics.Process.Start(dotPath,
+                    $"-Tpng \"{rutaArchivo}.dot\" -o \"{rutaArchivo}.png\"");
             }
-            catch
+            catch (Exception ex)
             {
-                // dot no disponible en PATH, omitir
+                // dot no disponible, omitir y mostrar advertencia
+                System.Console.WriteLine($"Advertencia: no se pudo generar PNG. Detalles: {ex.Message}");
             }
         }
     }

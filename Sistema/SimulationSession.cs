@@ -16,7 +16,7 @@ namespace IPC2_Proyecto1_2020XXXX.Sistema
         public SimulationSession(Paciente paciente)
         {
             Paciente = paciente;
-            Actual = paciente.Rejilla;
+            Actual = paciente.Rejilla!;
             Periodo = 0;
             historial = new ListaEnlazada<string>();
             inicial = Actual.ToString();
@@ -57,10 +57,21 @@ namespace IPC2_Proyecto1_2020XXXX.Sistema
                 historial.AddLast(estado);
             }
 
-            if (Periodo >= Paciente.Periodos)
+            int limitPeriods = Paciente.Simulado ? System.Math.Min(Paciente.Periodos, Utilidades.SimulationConfig.MaxGenerate) : Paciente.Periodos;
+            if (Periodo >= limitPeriods)
             {
-                Paciente.Resultado = "leve";
-                Console.WriteLine("Límite de períodos alcanzado; resultado leve.");
+                if (Paciente.Simulado && Paciente.Periodos > limitPeriods)
+                {
+                    Paciente.Resultado = "simulado";
+                    Console.WriteLine($"Se han ejecutado {limitPeriods} periodos en escala (rejilla {Actual.M}). Periodos reales: {Paciente.Periodos}. Resultado estimado: SIMULADO");
+                }
+                else
+                {
+                    Paciente.Resultado = "leve";
+                    Console.WriteLine($"*** LÍMITE DE PERÍODOS ALCANZADO ({limitPeriods} periodos) ***");
+                    Console.WriteLine($"No se detectó patrón repetido dentro del limite de {limitPeriods} periodos.");
+                    Console.WriteLine($"Resultado: LEVE (enfermedad controlable)");
+                }
                 return true;
             }
 

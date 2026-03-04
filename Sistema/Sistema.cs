@@ -30,7 +30,7 @@ namespace IPC2_Proyecto1_2020XXXX.Sistema
             Simulador.RunAll(p);
         }
 
-        public Paciente ObtenerPaciente(string nombre)
+        public Paciente? ObtenerPaciente(string nombre)
         {
             return pacientes.Find(x => x.DatosPersonales.Nombre == nombre);
         }
