@@ -177,27 +177,6 @@ Tres diagramas clave:
 
 ---
 
-## Requisitos Cumplidos
-
-Manual técnico entre 4-7 páginas  
-Diagrama de clases UML (Mermaid + ASCII Art + Graphviz)  
-Diagramas de actividad para algoritmos principales  
-Manual de usuario completo  
-Documentación en Markdown  
-Arquitectura clara y modular  
-**Múltiples formatos para visualización**  
-
----
-
-## Próximas Mejoras (Opcionales)
-
-- [ ] Generar diagrama de secuencias para flujo cliente-servidor
-- [ ] Crear guía de instalación de Graphviz paso a paso
-- [ ] Agregar ejemplos de casos de uso complejos
-- [ ] Video tutorial en YouTube
-
----
-
 **Documentación versión 1.1**  
 Generada: Marzo 2026  
 **Última actualización**: Agregados DIAGRAMA_CLASES.md y diagrama_clases.dot para múltiples formatos de visualización  
